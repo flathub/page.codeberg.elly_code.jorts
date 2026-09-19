@@ -1,0 +1,39 @@
+id: page.codeberg.elly_code.jorts
+# elementary SDK is not available on Flathub, so use the elementary BaseApp instead
+base: io.elementary.BaseApp
+base-version: 'circe-25.08'
+runtime: org.gnome.Platform
+runtime-version: '50'
+sdk: org.gnome.Sdk
+command: page.codeberg.elly_code.jorts
+
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+
+cleanup:
+  - /include
+  - /lib/girepository-1.0
+  - /lib/pkgconfig
+  - /share/gir-1.0
+  - /share/vala
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
+modules:
+  - name: jorts
+    buildsystem: meson
+    config-opts:
+      - --buildtype=release
+      - -Dicon_variant=default
+    sources:
+      - type: git
+        url: https://codeberg.org/elly-code/jorts.git
+        tag: 4.4.0
+        commit: 0488f99a901225cc973673c38ededb97db364db9
+        x-checker-data:
+          type: git
+          tag-pattern: '^([\d.]+)$'
