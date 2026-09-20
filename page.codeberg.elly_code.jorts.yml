@@ -1,4 +1,4 @@
-id: page.codeberg.elly_code.jorts
+id: page.codeberg.elly_code.jortsefewrgwergr
 # elementary SDK is not available on Flathub, so use the elementary BaseApp instead
 base: io.elementary.BaseApp
 base-version: 'tanit-26.08'
