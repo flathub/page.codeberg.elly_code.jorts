@@ -30,7 +30,7 @@ modules:
       # Flathub strips debug symbols into a separate extension
       - --buildtype=debugoptimized
       # ['default', 'classic', 'pride', 'halloween', 'devel']
-      - -Dicon_variant=default
+      - -Dicon_variant=halloween
     sources:
       - type: git
         url: https://codeberg.org/elly-code/jorts.git
@@ -39,4 +39,3 @@ modules:
         # Flathub's auto update bot
         x-checker-data:
           type: git
-          tag-pattern: '^\d+.\d+.\d+($|-\d+$)'
