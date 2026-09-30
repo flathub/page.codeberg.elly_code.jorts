@@ -1,7 +1,7 @@
 id: page.codeberg.elly_code.jorts
 # elementary SDK is not available on Flathub, so use the elementary BaseApp instead
 base: io.elementary.BaseApp
-base-version: 'tanit-26.08'
+base-version: tanit-26.08
 runtime: org.gnome.Platform
 runtime-version: '51'
 sdk: org.gnome.Sdk
@@ -27,13 +27,17 @@ modules:
   - name: jorts
     buildsystem: meson
     config-opts:
-      - --buildtype=release
-      - -Dicon_variant=default
+      # Flathub strips debug symbols into a separate extension
+      - --buildtype=debugoptimized
+      # ['default', 'classic', 'pride', 'halloween', 'devel']
+      - -Dicon_variant=halloween
     sources:
       - type: git
         url: https://codeberg.org/elly-code/jorts.git
-        tag: 4.4.0
-        commit: 0488f99a901225cc973673c38ededb97db364db9
+        tag: 4.4.1
+        commit: dffd9661a43472afcee810f7ac0a74c414a14e74
+        # Flathub's auto update bot
         x-checker-data:
           type: git
-          tag-pattern: '^\d+.\d+.\d+($|-\d+$)'
+          tag-pattern: '^\d+.\d+.\d+$'
+          sort-tags: false
