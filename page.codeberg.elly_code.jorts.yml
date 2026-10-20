@@ -34,8 +34,8 @@ modules:
     sources:
       - type: git
         url: https://codeberg.org/elly-code/jorts.git
-        tag: 4.4.1-2
-        commit: c23220cd58e8ce7f57fe658f25f802bf43c88948
+        tag: 4.4.2
+        commit: 7c08096cde4bfef315a0bc517d96388b9891301f
         # Flathub's auto update bot
         x-checker-data:
           type: git
